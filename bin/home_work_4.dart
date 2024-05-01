@@ -81,7 +81,7 @@ void year() {
   int year = int.tryParse(stdin.readLineSync() ?? "") ?? 0;
   if (year <= 0) {
     print('Ошибка');
-  } else if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+  } else if (year % 4 == 0 ) {
     print('$year високосный год');
   } else {
     print('$year не високосный год');
@@ -100,43 +100,37 @@ void nok() {
   if (num2 <= 0) {
     print("Число должно быть положительным и ненулевым");
   }
-  int result = (num1 * num2) ~/ nokalgoritm(num1, num2);
-  print('Наименьшее общее кратное чисел:$result');
-}
-
-int nokalgoritm(int a, int b) {
-  if (b == 0) {
-    return a;
+  for (int i = num1; i > -1; i++) {
+    if (i % num1 == 0 && i % num2 == 0) {
+      print(i);
+      break;
+    }
   }
-  return nokalgoritm(b, a % b);
 }
 //7
 
-int summ1() {
+void summ1() {
   print("Введите число:");
   int num1 = int.parse(stdin.readLineSync() ?? '') ?? 0;
+  String num2 = num1.toString();
+  int summ = 0;
   if (num1 < 0) {
     print("Число должно быть положительным или нулевым");
   }
-  int sum = 0;
-  for (int i = num1; i > 0; i ~/= 10) {
-    sum += i % 10;
+  for (int i = 0; i < num2.length; i++) {
+    summ += int.parse(num2[i]);
   }
-
-  print('суммы его цифр равна:$sum');
-  return sum;
+  print(summ);
 }
 //8
 
 void palindrom() {
   print("Введите слово");
   String word = stdin.readLineSync() ?? 'empty';
-  int lastIndex = word.length - 1;
-  for (int i = 0; i < word.length; i++) {
-    if if (word[i].toLowerCase() != word[lastIndex - i].toLowerCase()) {
-      return print('Не является палидромом');
-    }
-
-    } 
-  return print('Слово является палиндромом');
+  String b = word.split('').reversed.toList().join();
+  if (word == b) {
+    print('Палендром');
+  } else {
+    print('Не палендром');
+  }
 }
