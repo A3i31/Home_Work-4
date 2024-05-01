@@ -19,7 +19,7 @@ void main() {
   //7
   summ1();
   //8
-  word();
+   palindrom();
 }
 
 //1 отдельная функция
@@ -128,18 +128,15 @@ int summ1() {
 }
 //8
 
-List<String> word() {
+void palindrom() {
   print("Введите слово");
   String word = stdin.readLineSync() ?? 'empty';
-  List<String> word1 = [];
-  for (int i = 0; i < word.length; i++) { 
-    word1.add(word[i]);
-  }
-  if (word1.join() == word1.reversed.join()) {
-    print('Слово является палиндромом');
-  } else {
-    print('Не является палидромом');
-  }
-  return word1;
-}
+  int lastIndex = word.length - 1;
+  for (int i = 0; i < word.length; i++) {
+    if (word[i] != word[lastIndex - i]) {
+      return print('Не является палидромом');
+    }
 
+    } 
+  return print('Слово является палиндромом');
+}
