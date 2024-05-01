@@ -133,7 +133,7 @@ void palindrom() {
   String word = stdin.readLineSync() ?? 'empty';
   int lastIndex = word.length - 1;
   for (int i = 0; i < word.length; i++) {
-    if (word[i] != word[lastIndex - i]) {
+    if if (word[i].toLowerCase() != word[lastIndex - i].toLowerCase()) {
       return print('Не является палидромом');
     }
 
